@@ -8,10 +8,11 @@ object Day1: Day<Sequence<Int>>(1) {
     }
 
     override fun part1(input: Sequence<Int>): Any {
-        return input.reduce { acc, i -> acc + i }
+        return input.zipWithNext().count { it.second > it.first }
     }
 
     override fun part2(input: Sequence<Int>): Any {
-        return input.reduce { acc, i -> acc * i }
+        val windows = input.windowed(3).map { it.sum() }
+        return part1(windows)
     }
 }

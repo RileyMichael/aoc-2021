@@ -13,13 +13,28 @@ class Day1Test {
 
     @Test
     fun `test part one`() {
-        val actual = Day1.part1(sequenceOf(1, 2, 3))
-        assertEquals(6, actual)
+        val actual = Day1.part1(input)
+        assertEquals(7, actual)
     }
 
     @Test
     fun `test part two`() {
-        val actual = Day1.part2(sequenceOf(2, 5))
-        assertEquals(10, actual)
+        val actual = Day1.part2(input)
+        assertEquals(5, actual)
+    }
+
+    companion object {
+        private val input = sequenceOf(
+            199,
+            200,
+            208,
+            210,
+            200,
+            207,
+            240,
+            269,
+            260,
+            263
+        )
     }
 }
