@@ -30,17 +30,9 @@ fun main(args: Array<String>) {
 
 @OptIn(ExperimentalTime::class)
 fun <T> Day<T>.execute() {
-    val input = this::class.java.classLoader.getResourceAsStream("Day$number")
-        ?.bufferedReader()
-        ?.readLines()?.asSequence()
-
-    requireNotNull(input) { "Input for day $number not found"}
-
-    val parsed = parseInput(input)
-    val part1 = measureTimedValue { part1(parsed) }
-    val part2 = measureTimedValue { part2(parsed) }
-    println("----")
-    println("Day $number")
+    val part1 = measureTimedValue { execute(this::part1) }
+    val part2 = measureTimedValue { execute(this::part2) }
+    println("----Day $number----")
     println("Part1 (${part1.duration}): ${part1.value}")
     println("Part2 (${part2.duration}): ${part2.value}")
 }
