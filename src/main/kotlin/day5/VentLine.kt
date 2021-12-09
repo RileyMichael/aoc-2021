@@ -3,20 +3,33 @@ package com.github.rileymichael.day5
 import kotlin.math.max
 import kotlin.math.min
 
-data class VentLine(val p1: Point, val p2: Point) {
-    fun isHorizontal() = p1.y == p2.y
-    fun isVertical() = p1.x == p2.x
-    fun points(): List<Point> {
-        val points = mutableListOf<Point>()
-        if (isHorizontal()) {
-            for (x in min(p1.x, p2.x)..max(p1.x, p2.x)) {
-                points.add(Point(x, p1.y))
+data class VentLine(var p1: Point, var p2: Point) {
+    val isHorizontal: Boolean
+        get() = p1.y == p2.y
+
+    val isVertical: Boolean
+        get() = p1.x == p2.x
+
+    val isDiagonal: Boolean
+        get() = p1.x != p2.x && p1.y != p2.y
+
+    val points: List<Point>
+        get() = when {
+            isVertical -> {
+                val minY = min(p1.y, p2.y)
+                val maxY = max(p1.y, p2.y)
+                (minY..maxY).map { y ->
+                    Point(p1.x, y)
+                }
             }
-        } else if (isVertical()) {
-            for (y in min(p1.y, p2.y)..max(p1.y, p2.y)) {
-                points.add(Point(p1.x, y))
+            else -> {
+                if (p1.x > p2.x) {
+                    p1 = p2.also { p2 = p1 }
+                }
+                (p1.x..p2.x).map { x ->
+                    val y = p1.y + (p2.y - p1.y) * (x - p1.x) / (p2.x - p1.x)
+                    Point(x, y)
+                }
             }
         }
-        return points
-    }
 }

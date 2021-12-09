@@ -11,9 +11,11 @@ object Day5 : Day<VentField>(5) {
         return VentField(ventLines)
     }
 
-    override fun part1(input: VentField) = input.getOverlaps(2) { it.isHorizontal() || it.isVertical()}
+    override fun part1(input: VentField) = input.getOverlaps(2) {
+        it.isHorizontal || it.isVertical
+    }
 
-    override fun part2(input: VentField): Any {
-        TODO("Not yet implemented")
+    override fun part2(input: VentField) = input.getOverlaps(2) {
+        it.isHorizontal || it.isVertical || it.isDiagonal
     }
 }
