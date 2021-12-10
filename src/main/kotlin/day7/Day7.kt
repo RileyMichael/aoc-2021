@@ -15,7 +15,14 @@ object Day7: Day<List<Int>>(7) {
     }
 
     override fun part2(input: List<Int>): Any {
-        TODO("Not yet implemented")
+        val min = input.minByOrNull { it } ?: error("No minimum found")
+        val max = input.maxByOrNull { it } ?: error("No maximum found")
+        return (min..max).minOf { pos ->
+            input.sumOf {
+                val steps = abs(it - pos)
+                (steps * (steps + 1)) / 2
+            }
+        }
     }
 
 }
