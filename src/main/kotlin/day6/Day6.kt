@@ -21,7 +21,5 @@ object Day6 : Day<LanternfishSchool>(6) {
 
     override fun part1(input: LanternfishSchool) = input.simulate(80)
 
-    override fun part2(input: LanternfishSchool): Any {
-        TODO("Not yet implemented")
-    }
+    override fun part2(input: LanternfishSchool) = input.simulate(256)
 }
