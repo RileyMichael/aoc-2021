@@ -9,7 +9,7 @@ data class HeightMap(val data: List<List<Int>>) {
 
     val lowPoints by lazy {
         height.flatMap { row ->
-            width.mapNotNull{ col ->
+            width.mapNotNull { col ->
                 val pos = Point(col, row)
                 val neighbors = DIRECTIONS.map { pos + it }
                 if (neighbors.all { this[pos] < this[it] }) pos else null
