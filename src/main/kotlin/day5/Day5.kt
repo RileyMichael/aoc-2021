@@ -1,6 +1,7 @@
 package com.github.rileymichael.day5
 
 import com.github.rileymichael.Day
+import com.github.rileymichael.util.Point
 
 object Day5 : Day<VentField>(5) {
     override fun parseInput(input: Sequence<String>): VentField {

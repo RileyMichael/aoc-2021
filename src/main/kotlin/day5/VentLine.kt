@@ -1,5 +1,6 @@
 package com.github.rileymichael.day5
 
+import com.github.rileymichael.util.Point
 import kotlin.math.max
 import kotlin.math.min
 
