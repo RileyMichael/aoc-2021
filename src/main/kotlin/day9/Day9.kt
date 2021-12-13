@@ -9,7 +9,6 @@ object Day9 : Day<HeightMap>(9) {
 
     override fun part1(input: HeightMap) = input.lowPointRiskLevel()
 
-    override fun part2(input: HeightMap): Any {
-        TODO("Not yet implemented")
-    }
+    override fun part2(input: HeightMap) =
+        input.basins.sortedByDescending { it.size }.take(3).map { it.size }.reduce(Int::times)
 }
