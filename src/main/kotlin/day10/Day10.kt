@@ -37,6 +37,7 @@ object Day10 : Day<Sequence<String>>(10) {
             }
             stack.toCompletionString()
         }
+
         return completionStrings.map {
             it.map(Char::incompleteScore).reduce { acc, i -> acc * 5 + i }
         }.toList().sorted().middle()
