@@ -1,6 +1,7 @@
 package com.github.rileymichael.day11
 
 import com.github.rileymichael.day11.Day11.part1
+import com.github.rileymichael.day11.Day11.part2
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
@@ -15,6 +16,18 @@ class Day11Test {
     fun `part one solution`() {
         val actual = Day11.execute(::part1)
         Assertions.assertEquals(1705, actual)
+    }
+
+    @Test
+    fun `part two example`() {
+        val actual = Day11.execute(::part2, input)
+        Assertions.assertEquals(195, actual)
+    }
+
+    @Test
+    fun `part two solution`() {
+        val actual = Day11.execute(::part2)
+        Assertions.assertEquals(265, actual)
     }
 
     companion object {

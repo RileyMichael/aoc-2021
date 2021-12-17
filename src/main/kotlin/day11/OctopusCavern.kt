@@ -3,6 +3,7 @@ package com.github.rileymichael.day11
 import com.github.rileymichael.util.Point
 
 class OctopusCavern(private val grid: List<IntArray>) {
+    val size = grid.size * grid.first().size
     private val height = grid.indices
     private val width = grid.first().indices
     private val energyRange = 0..9
