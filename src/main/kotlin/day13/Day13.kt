@@ -6,24 +6,17 @@ import kotlin.math.abs
 
 data class TransparentPaper(val dots: Set<Point>, val instructions: Set<Point>)
 
-private fun Point.fold(foldPoint: Point): Point {
-    val x = when {
-        x > foldPoint.x -> abs(foldPoint.x * 2 - x)
-        else -> x
-    }
-    val y = when {
-        y > foldPoint.y -> abs(foldPoint.y * 2 - y)
-        else -> y
-    }
-    return Point(x, y)
-}
+private fun Point.fold(foldPoint: Point) = Point(
+    if (x > foldPoint.x) abs(foldPoint.x * 2 - x) else x,
+    if (y > foldPoint.y) abs(foldPoint.y * 2 - y) else y,
+)
 
-fun Set<Point>.foldAll() = buildString {
-    (0..this@foldAll.maxOf { it.y }).forEach { y ->
-        (0..this@foldAll.maxOf { it.x }).forEach { x ->
+private fun Set<Point>.getCode() = buildString {
+    (0..this@getCode.maxOf(Point::y)).forEach { y ->
+        (0..this@getCode.maxOf(Point::x)).forEach { x ->
             append(if (contains(Point(x, y))) '#' else ' ')
         }
-        append('\n')
+        appendLine()
     }
 }
 
@@ -64,6 +57,6 @@ object Day13 : Day<TransparentPaper>(13) {
                 dot.fold(it)
             }
         }
-        return result.foldAll()
+        return result.getCode()
     }
 }

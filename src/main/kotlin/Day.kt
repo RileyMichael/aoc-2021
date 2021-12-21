@@ -8,6 +8,7 @@ abstract class Day<T>(val number: Int) {
             .bufferedReader()
             .useLines { part(parseInput(it)) }
     }
+
     fun execute(part: (T) -> Any, input: String): Any = part(parseInput(input.lineSequence()))
     abstract fun parseInput(input: Sequence<String>): T
     abstract fun part1(input: T): Any

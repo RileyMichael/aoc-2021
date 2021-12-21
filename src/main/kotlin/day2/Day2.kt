@@ -10,7 +10,7 @@ object Day2 : Day<Sequence<Command>>(2) {
     }
 
     override fun part1(input: Sequence<Command>): Any {
-        var (depth, pos) = Pair(0,0)
+        var (depth, pos) = Pair(0, 0)
         input.forEach { command ->
             when (command.direction) {
                 "forward" -> pos = pos.plus(command.amount)

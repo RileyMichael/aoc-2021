@@ -3,7 +3,7 @@ package com.github.rileymichael.day7
 import com.github.rileymichael.Day
 import kotlin.math.abs
 
-object Day7: Day<List<Int>>(7) {
+object Day7 : Day<List<Int>>(7) {
     override fun parseInput(input: Sequence<String>): List<Int> = input.first().split(",").map(String::toInt)
 
     override fun part1(input: List<Int>): Int {
