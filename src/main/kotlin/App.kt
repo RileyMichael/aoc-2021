@@ -33,6 +33,6 @@ fun <T> Day<T>.execute() {
     val part1 = measureTimedValue { execute(this::part1) }
     val part2 = measureTimedValue { execute(this::part2) }
     println("----Day $number----")
-    println("Part1 (${part1.duration}): ${part1.value}")
-    println("Part2 (${part2.duration}): ${part2.value}")
+    println("Part1 (${part1.duration}): \n${part1.value}")
+    println("Part2 (${part2.duration}): \n${part2.value}")
 }

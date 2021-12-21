@@ -34,7 +34,6 @@ val part2Filter = { cave: Cave, path: Path ->
     } else {
         cave.isBig() || cave !in path || path.filterNot(Cave::isBig).groupingBy { it }.eachCount().none { it.value > 1 }
     }
-
 }
 
 private fun CaveSystem.search(
